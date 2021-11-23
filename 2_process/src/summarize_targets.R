@@ -1,6 +1,6 @@
 # Summarize pipeline metadata
-summarize_targets <- function(ind_file, ...) {
-  ind_tbl <- tar_meta(c(...)) %>%
+summarize_targets <- function(ind_file, names) {
+  ind_tbl <- tar_meta(all_of(names)) %>%
     select(tar_name = name, filepath = path, hash = data) %>%
     mutate(filepath = unlist(filepath))
 
